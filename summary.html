@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary | Join</title>
+    <link rel="stylesheet" href="./style/fonts.css">
+    <link rel="stylesheet" href="./style/summary.css">
+    <script src="./js/summary.js"></script>
+
+    <script src="./js/array.js"></script>
+    <script src="./js/login_signup/storage.js"></script>
+
+    <link rel="stylesheet" href="./assets/templates/header_sidebar.css">
+    <script src="./assets/templates/header_sidebar.js"></script>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon/site.webmanifest">
+
+</head>
+
+<body onload="init(), initSummary()">
+
+    <!-- Header template -->
+    <div w3-include-html="./assets/templates/header_sidebar.html"></div>
+
+    <!-- Content -->
+    <div class="content">
+        <section class="summary">
+            <div class="summary-title">
+                <h1>Join 360</h1>
+                <img src="./assets/img/Desktop/general_elements/bar/vector_blue.svg">
+                <span>Key Metrics at a Glance</span>
+                <img class="mobile-vector" src="./assets/img/Mobile/contacts_mobile/Vector 5.svg" alt="">
+            </div>
+            <div class="summary-main">
+                <div class="summary-board noselect">
+                    <div class="summary-todos">
+                        <a href="./board.html">
+                            <div class="summary-todos-badge">
+                                <img src="./assets/img/Desktop/summary/pencil_dark_circle.svg">
+                                <div>
+                                    <span id="toDoNum">0</span>
+                                    <p>To-do</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="./board.html">
+                            <div class="summary-todos-badge">
+                                <img src="./assets/img/Desktop/summary/check_dark_circle.svg">
+                                <div>
+                                    <span id="doneNum">0</span>
+                                    <p>Done</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <a href="./board.html">
+                        <div class="summary-urgent">
+                            <div class="summary-urgent-badge">
+                                <img src="./assets/img/Desktop/summary/urgent_high_circle.svg">
+                                <div>
+                                    <span id="urgentNum">0</span>
+                                    <p>Urgent</p>
+                                </div>
+                            </div>
+                            <img src="./assets/img/Desktop/general_elements/bar/vector_gray.svg">
+                            <div>
+                                <h6 id="deadlineDate">-</h6>
+                                <p>Upcoming Deadline</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="summary-overview">
+                        <a href="./board.html">
+                            <div class="summary-overview-badge">
+                                <span id="tasksNum">0</span>
+                                <p>Tasks in<br>Board</p>
+                            </div>
+                        </a>
+                        <a href="./board.html">
+                            <div class="summary-overview-badge">
+                                <span id="inProgressNum">0</span>
+                                <p>Tasks in<br>Progress</p>
+                            </div>
+                        </a>
+                        <a href="./board.html">
+                            <div class="summary-overview-badge">
+                                <span id="awaitFeedbackNum">0</span>
+                                <p>Awaiting Feedback</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="summary-greeting">
+                    <div id="greeting">
+                        <h2></h2>
+                        <h1></h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Board | Join</title>
+
+    <link rel="stylesheet" href="./style/fonts.css" />
+    <link rel="stylesheet" href="./style/board.css" />
+    <link rel="stylesheet" href="./style/login_signup.css" />
+    <link rel="stylesheet" href="./style/add-task.css" />
+
+    <script src="./js/drag_and_drop.js"></script>
+    <script src="./js/board_helpfunctions.js"></script>
+    <script src="./js/array.js"></script>
+    <script src="./js/board_HTML_generation.js"></script>
+    <script src="./js/edit_task.js"></script>
+    <script src="./js/board.js"></script>
+    <script src="./js/add_task_scripts/help_functions.js"></script>
+    <script src="./js/add_task_scripts/add_task_templates.js"></script>
+    <script src="./js/add_task_scripts/priorities.js"></script>
+    <script src="./js/add_task_scripts/get_values.js"></script>
+    <script src="./js/add_task_scripts/subtask_handling.js"></script>
+    <script src="./js/contacts.js"></script>
+    <script src="./js/add_task_scripts/clear_values.js"></script>
+    <script src="./js/add_task_scripts/add_task.js"></script>
+    <script src="./js/board_eventlistener.js"></script>
+
+    <link rel="stylesheet" href="./assets/templates/header_sidebar.css">
+    <script src="./js/login_signup/storage.js"></script>
+    <script src="./assets/templates/header_sidebar.js"></script>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon/site.webmanifest">
+
+</head>
+
+<body onload="init(), loadBoard(), setPrio('medium')">
+    <div id="openCardContainer" class="openCardContainer hidden" onclick="handleOpenCardContainerClick()">
+        <div id="openCard" onclick="event.stopPropagation();"></div>
+    </div>
+    <div id="allertNoTasksFoundContainer" class="allertNoTasksFoundContainer"></div>
+    <div class="mainAddTaskContainer hidden" id="animationDiv">
+        <div id="transition" class="add-tasks-popup-container" onclick="hideAddTaskMenu('assigned-contacts')">
+            <div class="add-tasks-popup" onclick="event.stopPropagation();">
+                <div class="popup-wrapper">
+
+                    <div class="addTaskHeader">
+                        <h1 class="content-title">Add Task</h1>
+                        <button class="noselect" id="closeAddTaskButton" onclick="hideAddTaskMenu('assigned-contacts')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none">
+                                <mask id="mask0_116223_1910" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0"
+                                    y="0" width="24" height="24">
+                                    <rect width="24" height="24" fill="#D9D9D9" />
+                                </mask>
+                                <g mask="url(#mask0_116223_1910)">
+                                    <path
+                                        d="M12 13.4L7.1 18.3C6.91667 18.4834 6.68333 18.575 6.4 18.575C6.11667 18.575 5.88333 18.4834 5.7 18.3C5.51667 18.1167 5.425 17.8834 5.425 17.6C5.425 17.3167 5.51667 17.0834 5.7 16.9L10.6 12L5.7 7.10005C5.51667 6.91672 5.425 6.68338 5.425 6.40005C5.425 6.11672 5.51667 5.88338 5.7 5.70005C5.88333 5.51672 6.11667 5.42505 6.4 5.42505C6.68333 5.42505 6.91667 5.51672 7.1 5.70005L12 10.6L16.9 5.70005C17.0833 5.51672 17.3167 5.42505 17.6 5.42505C17.8833 5.42505 18.1167 5.51672 18.3 5.70005C18.4833 5.88338 18.575 6.11672 18.575 6.40005C18.575 6.68338 18.4833 6.91672 18.3 7.10005L13.4 12L18.3 16.9C18.4833 17.0834 18.575 17.3167 18.575 17.6C18.575 17.8834 18.4833 18.1167 18.3 18.3C18.1167 18.4834 17.8833 18.575 17.6 18.575C17.3167 18.575 17.0833 18.4834 16.9 18.3L12 13.4Z"
+                                        fill="#2A3647" />
+                                </g>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div>
+                        <section class="task-forms">
+                            <div class="forms-sides">
+                                <div class="form-div">
+                                    <span class="form-span required-asteriks">Title</span>
+                                    <div class="form-subcontainer noselect">
+                                        <input id="task-title-input" maxlength="48" class="task-title-input" type="text"
+                                            placeholder="Enter a title" required />
+                                        <p class="input-required-warning invisible" id="requiredTextTitle">This
+                                            field is
+                                            required</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-div">
+                                    <span class="form-span required-asteriks">Description</span>
+                                    <div class="form-subcontainer noselect">
+                                        <textarea id="task-description-textarea" class="task-description-textarea"
+                                            name="inputDescription" placeholder="Enter a Description"
+                                            required></textarea>
+                                        <p class="input-required-warning invisible" id="requiredTextDescription">This
+                                            field is required</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-div">
+                                    <span class="form-span">Assigned
+                                        to</span>
+                                    <div class="input-div-wrapper noselect">
+                                        <div class="input-div">
+                                            <input id="add-contact-input" class="add-contact-input" type="text"
+                                                placeholder="Select contacts to assign" required
+                                                onclick="toggleDropdown('assignDropdown', 'arrowAssign')" />
+                                            <img class="arrow-symbol input-symbol" id="arrowAssign"
+                                                src="./assets/img/Desktop/add-task/arrow_dropdown_down.svg"
+                                                alt="Pfeil runter"
+                                                onclick="toggleDropdown('assignDropdown', 'arrowAssign')" />
+                                        </div>
+                                        <div class="assignDropdown-popup addTaskPopupDropdown d-none" id="assignDropdown"></div>
+                                    </div>
+                                    <div class="assigned-contacts " id="assigned-contacts"></div>
+
+                                </div>
+                            </div>
+
+                            <div class="seperator-vertical"></div>
+
+                            <div class="forms-sides">
+                                <div class="form-div">
+                                    <span class="form-span required-asteriks">Due
+                                        date</span>
+                                    <div class="form-subcontainer noselect">
+
+                                        <div class="input-div">
+                                            <input id="due-date-input" maxlength="48" class="due-date-input" type="date"
+                                                placeholder="dd/mm/yyyy" required />
+                                        </div>
+
+                                        <p class="input-required-warning invisible" id="requiredTextDueDate">This
+                                            field
+                                            is required</p>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-div">
+                                    <span class="form-span">Priority</span>
+                                    <div class="prio-buttons noselect">
+                                        <button type="button" class="prio-btn" id="urgentBtn"
+                                            onclick="setPrio('urgent')">
+                                            <span>Urgent</span>
+                                            <img src="./assets/img/Desktop/add-task/priority_icons/urgent.svg"
+                                                id="urgentSymbol" />
+                                        </button>
+                                        <button type="button" class="prio-btn medium" id="mediumBtn"
+                                            onclick="setPrio('medium')">
+                                            <span>Medium</span>
+                                            <img src="./assets/img/Desktop/add-task/priority_icons/medium_white.svg"
+                                                id="mediumSymbol" />
+                                        </button>
+                                        <button type="button" class="prio-btn" id="lowBtn" onclick="setPrio('low')">
+                                            <span>Low</span>
+                                            <img src="./assets/img/Desktop/add-task/priority_icons/low.svg"
+                                                id="lowSymbol" />
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="form-div">
+                                    <span class="form-span required-asteriks">Category</span>
+                                    <div class="input-div-wrapper noselect">
+                                        <div class="input-div">
+                                            <input
+                                                onclick="switchVisibility('categoryDropdown', 'arrowCategory'), generateCategoryOptions()"
+                                                id="add-category-input" class="add-category-input" type="text"
+                                                placeholder="Select task category" required readonly/>
+
+                                            <img onclick="switchVisibility('categoryDropdown', 'arrowCategory'), generateCategoryOptions()"
+                                                class="arrow-symbol input-symbol" id="arrowCategory"
+                                                src="./assets/img/Desktop/add-task/arrow_dropdown_down.svg"
+                                                alt="Pfeil runter" />
+                                        </div>
+                                        <div class="categoryDropdown-popup d-none" id="categoryDropdown"></div>
+
+                                    </div>
+                                    <p class="input-required-warning invisible" id="requiredTextCategory">This field
+                                        is
+                                        required</p>
+                                </div>
+
+                                <div class="form-div">
+                                    <span class="form-span">Subtasks</span>
+                                    <div class="form-subcontainer noselect">
+
+                                        <div class="input-div" id="subtask-input-div">
+                                            <input id="subtask-input" maxlength="48" class="subtask-input" type="text"
+                                                placeholder="Add new subtask" onfocus="addFocusClass()" />
+
+                                            <div class="plus-symbol-div" id="plus-symbol-div">
+                                                <img class="plus-symbol input-symbol" id="plus-symbol-subtask>"
+                                                    onclick="addFocusClass()"
+                                                    src="./assets/img/Desktop/add-task/subtasks_icons/add.svg"
+                                                    alt="plus" />
+                                            </div>
+
+                                            <div class="create-task-div d-none" id="create-task-div">
+                                                <img class="plus-symbol input-symbol" id="close-symbol-subtask"
+                                                    onclick="clearSubtaskInput()"
+                                                    src="./assets/img/Desktop/add-task/subtasks_icons/close.svg"
+                                                    alt="cancel-symbol" />
+
+                                                <img class="check-symbol input-symbol" id="check-symbol-subtask"
+                                                    onclick="setSubtask('subtask-input', 'subTasks')"
+                                                    src="./assets/img/Desktop/add-task/subtasks_icons/check.svg"
+                                                    alt="check-symbol" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="subTasks" class="subTasks"></div>
+                                </div>
+                        </section>
+                    </div>
+
+                </div>
+
+                <div class="footer-container">
+                    <span class="footer-required-field required-asteriks-before">
+                        This field is required
+                    </span>
+
+                    <div class="footer-btn-container noselect">
+                        <button id="clearBtn" type="button" class="addTaskBtn clearBtn"
+                            onclick="clearForm('assigned-contacts', 'subTasks')">
+                            Clear
+                            <img src="./assets/img/Desktop/add-task/cancel.svg" alt="weißer Haken" />
+                        </button>
+
+                        <button id="createTaskBtn" type="submit" class="addTaskBtn createBtn"
+                            onclick="validateAndCreateTaskPopup('assigned-contacts', 'subTasks', 'main')">
+                            Create Task
+                            <img src="./assets/img/Desktop/add-task/check.svg" alt="weißer Haken" />
+                        </button>
+                        <div id="okBtnDiv"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Header template -->
+    <div w3-include-html="./assets/templates/header_sidebar.html"></div>
+
+    <!-- Content -->
+    <div id="content" class="content">
+        <div class="MobileBoardHeader">
+            <div class="MobileBoardHeaderControll">
+                <h2>Board</h2>
+                <button class="addTaskButton" onclick="openAddTaskMenu('ToDo')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <mask id="mask0_111266_3931" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
+                            width="32" height="32">
+                            <rect width="32" height="32" fill="#D9D9D9" />
+                        </mask>
+                        <g mask="url(#mask0_111266_3931)">
+                            <path
+                                d="M14.666 17.3327H6.66602V14.666H14.666V6.66602H17.3327V14.666H25.3327V17.3327H17.3327V25.3327H14.666V17.3327Z"
+                                fill="white" />
+                        </g>
+                    </svg>
+                </button>
+            </div>
+            <div class="boardHeaderControll">
+
+                <div class="sortTasks noselect">
+                    <input onkeyup="sortAndFilterCards('sortTasksInputMobile')" class="searchInput"
+                        id="sortTasksInputMobile" placeholder="Find Task">
+                    <div class="sortTasksButton">
+                        <div class="sortTasksSpacer"></div>
+                        <button>
+                            <img src="./assets/img/Desktop/board/search/default.svg">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="boardHeader">
+            <h2>Board</h2>
+            <div class="boardHeaderControll noselect">
+                <div class="sortTasks">
+                    <input onkeyup="sortAndFilterCards('sortTasksInput')" class="searchInput" id="sortTasksInput"
+                        placeholder="Find Task">
+                    <div class="sortTasksButton">
+                        <div class="sortTasksSpacer"></div>
+                        <button>
+                            <img src="./assets/img/Desktop/board/search/default.svg">
+                        </button>
+                    </div>
+                </div>
+                <button class="addTaskButton" onclick="openAddTaskMenu('ToDo'), loadAddTaskPage(), setPrio('medium')">
+                    <p>Add task</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <mask id="mask0_111266_3931" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
+                            width="32" height="32">
+                            <rect width="32" height="32" fill="#D9D9D9" />
+                        </mask>
+                        <g mask="url(#mask0_111266_3931)">
+                            <path
+                                d="M14.666 17.3327H6.66602V14.666H14.666V6.66602H17.3327V14.666H25.3327V17.3327H17.3327V25.3327H14.666V17.3327Z"
+                                fill="white" />
+                        </g>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="toDoList">
+            <div>
+                <div class="toDoListCategories">
+                    <p>To do</p>
+                    <a class="hoverPointer AddTaskButton noselect" onclick="openAddTaskMenu('ToDo'), loadAddTaskPage(), setPrio('medium')"><svg
+                            width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2" />
+                            <path d="M12 8V16" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
+                            <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
+                        </svg></a>
+                </div>
+                <div class="dragContainer noselect" ondrop="moveTo('ToDo')" ondragover="allowDrop(event)">
+                    <div class="listContainer" id="ToDoContainer"></div>
+                    <div id="ToDoHoverContainer" class="hoverCardContainer d-none"></div>
+                </div>
+            </div>
+            <div>
+
+                <div class="toDoListCategories">
+                    <p>In progress</p>
+                    <a class="hoverPointer AddTaskButton noselect"
+                        onclick="openAddTaskMenu('InProgress'), loadAddTaskPage(), setPrio('medium')"><svg width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2" />
+                            <path d="M12 8V16" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
+                            <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="dragContainer noselect" ondrop="moveTo('InProgress')" ondragover="allowDrop(event)">
+                    <div class="listContainer" id="InProgressContainer"></div>
+                    <div id="InProgressHoverContainer" class="hoverCardContainer d-none"></div>
+                </div>
+            </div>
+
+            <div>
+                <div class="toDoListCategories">
+                    <p>Await feedback</p>
+                    <a class="hoverPointer AddTaskButton noselect" onclick="openAddTaskMenu('AwaitFeedback'), loadAddTaskPage(), setPrio('medium')">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2" />
+                            <path d="M12 8V16" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
+                            <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="dragContainer noselect" ondrop="moveTo('AwaitFeedback')" ondragover="allowDrop(event)">
+                    <div class="listContainer" id="AwaitFeedbackContainer"></div>
+                    <div id="AwaitFeedbackHoverContainer" class="hoverCardContainer d-none"></div>
+                </div>
+            </div>
+
+            <div>
+                <div class="toDoListCategories">
+                    <p>Done</p>
+                </div>
+                <div class="dragContainer noselect" ondrop="moveTo('Done')" ondragover="allowDrop(event)">
+                    <div class="listContainer" id="DoneContainer"></div>
+                    <div id="DoneHoverContainer" class="hoverCardContainer d-none"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

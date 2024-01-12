@@ -1,0 +1,3 @@
+let tasks = [];
+
+let contacts = [];

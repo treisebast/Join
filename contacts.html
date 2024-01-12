@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts | Join</title>
+
+    <link rel="stylesheet" href="./style/fonts.css">
+    <link rel="stylesheet" href="./style/contacts.css">
+    <script defer src="./js/contacts_HTML.js"></script>
+    <script defer src="./js/contacts.js"></script>
+
+    <script defer src="./js/array.js"></script>
+
+    <link rel="stylesheet" href="./assets/templates/header_sidebar.css">
+    <script src="./js/login_signup/storage.js"></script>
+    <script defer src="./assets/templates/header_sidebar.js"></script>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon/site.webmanifest">
+
+
+</head>
+
+<body onload="init(), initContacts()">
+
+    <!-- Header template -->
+    <div w3-include-html="./assets/templates/header_sidebar.html"></div>
+
+    <!-- Content -->
+    <div id="content" class="content d-flex">
+        <div id="contact-list-container">
+            <div class="add-new noselect">
+                <div onclick="openAddNewContact()" class="add-new-button">
+                    <span>Add new contact</span>
+                    <img src="./assets/img/Desktop/contacts/person_add.svg">
+                </div>
+            </div>
+            <div onclick="openAddNewContact()" class="add-new-mobile">
+                <img src="./assets/img/Desktop/contacts/person_add.svg">
+            </div>
+            <div id="contactList" class="contact-list noselect">
+
+            </div>
+        </div>
+        <div id="main" class="main">
+            <section class="title">
+                <div class="contacts-title">
+                    <h1>Contacts</h1>
+                    <img onclick="closeContactMobile()" class="mobile-arrow"
+                        src="./assets/img/Desktop/general_elements/arrow_left/default.svg" alt="Go Back">
+                </div>
+                <img src="./assets/img/Desktop/general_elements/bar/vector_blue.svg">
+                <span>Better with a team</span>
+                <img class="mobile-vector" src="./assets/img/Mobile/contacts_mobile/Vector 5.svg">
+            </section>
+            <section class="info" id="contactsInfo">
+
+            </section>
+            <div class="message-container">
+                <div id="message" class="message d-none">
+                    <span>Contact succesfully created</span>
+                </div>
+            </div>
+        </div>
+        <div id="popUp" onclick="closePopUp()" class="popup-bg d-none">
+            <div class="popup" onclick="doNotClose(event)">
+                <div class="popup-title">
+                    <img class="mobile-x" onclick="closePopUp()" src="./assets/img/Mobile/contacts_mobile/close.svg"
+                        alt="Close">
+                    <div class="p-relative">
+                        <img class="popup-logo" src="./assets/img/Desktop/general_elements/join_light.svg" alt="Join">
+                    </div>
+                    <h1 id="popUpTitle">Add contact</h1>
+                    <span id="popUpSubtitle">Tasks are better with a team!</span>
+                    <img id="popUpVector" src="./assets/img/Desktop/general_elements/bar/vector_blue_vertical.svg">
+                </div>
+                <div class="popup-fields">
+                    <div>
+                        <img class="x-button noselect" onclick="closePopUp()" src="./assets/img/Desktop/contacts/close.svg"
+                            alt="Close">
+                    </div>
+                    <div class="popup-section">
+                        <div id="popUpProfile" class="popup-profile noselect"><img src="./assets/img/Desktop/contacts/person.svg"
+                                alt="Profile-Image"></div>
+                        <form class="popup-input noselect" onsubmit="return addNewContact()">
+                            <input pattern="[a-zA-Z ]+" type="text" placeholder="Name" id="popUpName" required>
+                            <input type="email" placeholder="Email" id="popUpEmail" required>
+                            <input title="Only +, numbers & spaces are allowed" pattern="[+]?[\d ]*" type="tel"
+                                placeholder="Phone" id="popUpPhone" required>
+                            <div id="popup-buttons" class="popup-buttons">
+                                <button onclick="closePopUp()" type="button">Cancel<img
+                                        src="./assets/img/Desktop/contacts/iconoir_cancel.svg" alt="Cancel"></button>
+                                <button id="popUpSubmit" type="submit">Create contact<img
+                                        src="./assets/img/Desktop/contacts/check.svg" alt="Create Contact"></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

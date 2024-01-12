@@ -1,0 +1,1342 @@
+.hoverPointer:hover {
+  cursor: pointer;
+}
+
+.hoverPointer:active:not(.AddTaskButton, .openCardSubtasks) {
+  transform: rotate(5deg);
+}
+
+.textCross {
+  text-decoration: Line-through;
+}
+
+.content {
+  padding: 4rem !important;
+  max-height: calc(100vh - 6rem - 4rem - 4rem);
+}
+
+.boardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.boardHeader h2 {
+  font-size: 3.8125rem;
+  font-style: normal;
+  font-weight: 700;
+  margin: 0;
+}
+
+.boardHeaderControll {
+  display: flex;
+  gap: 2rem;
+}
+
+.sortTasks {
+  display: flex;
+  width: 19.5rem;
+  padding: 0.5rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.625rem;
+  border: 1px solid var(--icon, #a8a8a8);
+  background: #fff;
+}
+
+.sortTasks input {
+  border: none;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+
+.sortTasks:focus-within {
+  border-color: #29ABE2;
+  transition: 100ms ease-out;
+}
+
+.sortTasks button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  height: 2rem;
+  width: 2rem;
+  background-color: white;
+}
+
+.sortTasksSpacer {
+  background: #d1d1d1;
+  height: 1.9375rem;
+  width: 1px;
+}
+
+.sortTasksButton {
+  display: flex;
+  gap: 1rem;
+}
+
+.sortTasksButton img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+.sortTasksButton img:hover {
+  background-color: #EEE;
+  cursor: pointer;
+}
+
+.sortTasksButton img:active {
+  content: url('../assets/img/Desktop/board/search/clicked.svg');
+  background-color: unset;
+}
+
+.addTaskButton {
+  display: flex;
+  padding: 0.5rem 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 0.625rem;
+  border: 1px solid #2a3647;
+  background: #2a3647;
+  color: white;
+  cursor: pointer
+}
+
+.addTaskButton:hover {
+  background-color: #29ABE2;
+  border-color: #29ABE2;
+  transition: 100ms ease-in-out;
+}
+
+.addTaskButton:active {
+  background-color: #091931;
+  border-color: #2A3647;
+  transition: 100ms ease-in-out;
+}
+
+.addTaskButton p {
+  font-size: 1.3125rem;
+  font-style: normal;
+  font-weight: 700;
+  margin: 0;
+}
+
+.addTaskButton svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.addTaskBtnOk {
+  margin-top: 1rem;
+  display: flex;
+  padding: 0.5rem 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 0.625rem;
+  border: 1px solid #2a3647;
+  background: #2a3647;
+  color: white;
+}
+
+.addTaskBtnOk p {
+  font-size: 1.3125rem;
+  font-style: normal;
+  font-weight: 700;
+  margin: 0;
+}
+
+.addTaskBtnOk svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.addTaskBtnOk:hover {
+  cursor: pointer;
+}
+
+.toDoList {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.toDoList p {
+  width: 15.25rem;
+}
+
+.toDoList table {
+  display: flex;
+  text-align: left;
+}
+
+.toDoList h3 {
+  color: #2a3647;
+  font-size: 1rem;
+  line-height: 1.2rem;
+}
+
+.toDoList p {
+  color: #42526e;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.toDoList span {
+  color: #000;
+  font-size: 0.75rem;
+  line-height: 0.9rem;
+  text-align: center;
+}
+
+.toDoListCategories {
+  display: flex;
+  width: 15.75rem;
+  margin-bottom: 0.97rem;
+  align-items: center;
+  height: 1.5rem;
+}
+
+.toDoListCategories svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.toDoCard {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 1.875rem;
+  gap: 1.5rem;
+  width: 13.75rem;
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
+}
+
+.toDoCard h3 {
+  color: #2a3647;
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  word-break: break-word;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.toDoCard p {
+  color: #a8a8a8;
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  word-break: break-word;
+  width: 100%;
+}
+
+.progressbar {
+  display: flex;
+  padding: 0rem 0.5rem 0.125rem 0rem;
+  align-items: center;
+  gap: 0.6875rem;
+}
+
+.progressbar progress {
+  display: flex;
+  width: 8rem;
+  gap: 0.625rem;
+  border-radius: 0.5rem;
+  background: #f4f4f4;
+  height: 0.5rem;
+}
+
+.progressbar progress::-webkit-progress-bar {
+  border-radius: 0.5rem;
+  background: #f4f4f4;
+}
+
+.progressbar progress::-webkit-progress-value {
+  border-radius: 1rem;
+  background: #4589ff;
+}
+
+.noTaskFound {
+  display: flex;
+  height: 3rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  align-self: stretch;
+  border-radius: 0.625rem;
+  border: 1px dashed var(--icon, #a8a8a8);
+  background: #e7e7e7;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+}
+
+.noTaskFound p {
+  color: var(--icon, #a8a8a8);
+  font-family: Open Sans;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.2rem;
+  text-align: center;
+}
+
+.headerUserStory {
+  display: flex;
+  padding: 0.25rem 1rem;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 0.5rem;
+  background: #0038ff;
+  color: #fff;
+  width: fit-content;
+}
+
+.headerUserStoryPopUp:not(.headerUserStory) {
+  padding: 0.25rem 1.5rem;
+}
+
+.headerTechnicalTask {
+  display: flex;
+  width: 7.0625rem;
+  padding: 0.25rem 1rem;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 0.5rem;
+  background: #1fd7c1;
+  color: #fff;
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.userIcon {
+  display: flex;
+  flex-direction: row;
+  max-width: 10rem;
+  overflow: hidden;
+  padding-right: 0.5rem;
+}
+
+.userIcon div {
+  margin-right: -0.5rem;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  font-size: 0.75rem;
+  width: calc(2rem - 1px);
+  height: calc(2rem - 1px);
+  border-radius: 50%;
+  border: 1px solid white;
+}
+
+.icon:nth-child(1) {
+  /* left: 0; */
+  background-color: #ff7a00;
+}
+
+.icon:nth-child(2) {
+  /* left: 0.5rem; */
+  background-color: #1fd7c1;
+}
+
+.icon:nth-child(3) {
+  /* left: 1rem; */
+  background-color: #462f8a;
+}
+
+.toDoCardFooter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.drag-area-highlight {
+  background-color: red;
+}
+
+.dragContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 15.75rem;
+}
+
+.listContainer::-webkit-scrollbar {
+  width: 4px;
+}
+
+.dNone {
+  display: none;
+}
+
+.searchInput {
+  color: black !important;
+  outline: none;
+  padding: 0 !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.mainAddTaskContainer {
+  display: flex;
+  position: absolute;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 12;
+  height: 100dvh;
+  width: 100vw;
+}
+
+.add-tasks-popup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  width: 61.75rem;
+  height: 48.375rem;
+  background-color: white;
+  padding: 4rem;
+  border-radius: 50px;
+  gap: 0rem;
+  justify-content: space-between;
+  overflow-y: hidden;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+}
+
+.edit-tasks-popup {
+  background: #FFF;
+  width: 27.8125rem;
+  padding: 3rem 2.5rem;
+  border-radius: 1.875rem;
+  gap: 1.5rem;
+}
+
+.edit-tasks-popup .editor-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-tasks-popup .task-forms {
+  flex-direction: column;
+  gap: 1rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(85vh - 7rem);
+  scrollbar-width: none;
+}
+
+.footer-edit-task .footer-btn-container {
+  justify-content: flex-end;
+}
+
+.footer-edit-task .addTaskBtnOk {
+  font-size: 1.3125rem;
+  margin-top: 1.5rem;
+  padding: 1rem;
+}
+
+.edit-tasks-popup .task-forms::-webkit-scrollbar {
+  width: 0;
+}
+
+.editTaskHeader {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pos-static {
+  position: static !important;
+}
+
+.popup-wrapper {
+  display: flex;
+  gap: 5rem;
+  flex-direction: column;
+}
+
+.add-tasks-popup-container {
+  z-index: 10;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inset: 0;
+}
+
+/* .tansinCard {
+    animation: slideInCard 0.7s ease-in-out;
+} */
+
+/* .transout {
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: right;
+    transform: translateX(150%) translateY(-50%);
+    transition: transform 0.7s ease-in-out;
+} */
+
+/* .tansoutCard {
+    animation: slideInCard 0.7s ease-in-out;
+} */
+
+.addTaskHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#closeAddTaskButton svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0.25rem;
+}
+
+#closeAddTaskButton {
+  background-color: white;
+  border: none;
+  padding: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+#closeAddTaskButton:hover {
+  cursor: pointer;
+  background-color: #EEE;
+}
+
+.assignDropdown-popup {
+  display: flex;
+  box-sizing: border-box;
+  width: 27.6rem;
+  height: 16rem;
+  border-radius: 0 0 0.625rem 0.625rem;
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid var(--border-default);
+  border-top: none;
+  position: absolute;
+  z-index: 999;
+  top: 36.9rem;
+  left: 4.27rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem;
+}
+
+.editTaskDropdownHeight {
+  height: 12.5rem!important;
+  position: relative;
+  width: 27.6rem;
+  top: -0.4rem;
+  left: 0;
+}
+
+.task-forms {
+  margin-top: 0 !important;
+}
+
+.assignDropdown-popup:hover {
+  border-color: var(--border-hover);
+}
+
+.categoryDropdown-popup {
+  width: 27.6rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid var(--border-default);
+  border-radius: 0 0 0.625rem 0.625rem;
+  border-top: none;
+  position: absolute;
+  top: 32.1rem;
+  right: 4.2rem;
+  z-index: 999;
+  overflow-y: auto;
+}
+
+.categoryDropdown-popup:hover {
+  border-color: var(--border-hover);
+}
+
+.footer-container {
+  width: 80%;
+  max-width: 63rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subTasks {
+  max-height: 5rem;
+  width: 100%;
+  overflow: auto;
+}
+
+.MobileBoardHeader {
+  display: none;
+}
+
+.openCardContainer {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 12;
+  overflow: hidden;
+}
+
+.openCardOverflow {
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.openCardOverflow::-webkit-scrollbar {
+  width: 0;
+}
+
+.openCard {
+  width: 27.8125rem;
+  max-height: 85vh;
+  flex-direction: column;
+  margin: 0 !important;
+  z-index: 15 !important;
+  padding: 3rem 2.5rem;
+  overflow-y: auto;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+}
+
+.openCard::-webkit-scrollbar {
+  display: none;
+}
+
+.openCard h3 {
+  font-size: 3.8125rem;
+}
+
+.openCard h4 {
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.openCardTable {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  gap: 1.5625rem;
+}
+
+.openCardTable p {
+  color: #2a3647;
+}
+
+.openCardPriority {
+  display: flex;
+  padding: 0.25rem 1.125rem;
+
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.priority {
+  margin-bottom: 1.5rem;
+}
+
+div[id^="openCardSubtasks"] {
+  height: 11.5rem;
+  overflow-y: auto;
+}
+
+.openCardAssigned {
+  max-height: 11.5rem;
+  overflow-y: auto;
+}
+
+.openCardPriority span,
+.openCardTable p,
+.openCardTable span,
+.openCardIcon p,
+.openCardSubtasks,
+.openCardAssignedTitle p,
+.openCardSubtasks-container p {
+  color: #000;
+  font-family: "Inter";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.openCardAssignedTitle p:not(.openCardIcon p) {
+  margin-bottom: 0.5rem;
+}
+
+.openCardAssignedTitle {
+  margin-bottom: 1.5rem;
+}
+
+.openCardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.openCardContent h3 {
+  color: #000;
+  font-family: Inter;
+  font-size: 3.8125rem !important;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+}
+
+.openCardContent h4 {
+  color: #000;
+  font-family: Inter;
+  font-size: 1.25rem !important;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  word-break: break-word;
+}
+
+#openCardIcon {
+  display: flex;
+  flex-direction: column;
+}
+
+.openCardIcon {
+  display: flex;
+  padding: 0.4375rem 1rem;
+  gap: 1rem;
+  align-items: center;
+  font-size: 1.1875rem;
+}
+
+.openCardIcon .icon {
+  min-width: calc(2.625rem - 2px);
+  min-height: calc(2.625rem - 2px);
+  border: 2px solid white;
+}
+
+.openCardAssigned p:not(.openCardIcon p) {
+  font-size: 1.25rem;
+  color: #2a3647;
+  margin-bottom: 0.5rem;
+}
+
+.openCardHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.openCardCategory {
+  font-size: 1.4375rem;
+  width: unset;
+  padding: 0.25rem 1.5rem;
+}
+
+.openCardHeader a {
+  height: 2rem;
+  cursor: pointer;
+}
+
+.openCardHeader svg {
+  padding: 0.25rem;
+  border-radius: 50%;
+}
+
+.openCardTable p, .openCardAssignedTitle p:first-child {
+  color: #42526E;
+}
+
+.openCardTable p {
+  width: unset;
+}
+
+.openCardHeader svg:hover {
+  background-color: #EEE;
+}
+
+.openCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row;
+  gap: 0.5rem;
+  color: #2a3647;
+}
+
+.openCardFooter a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.openCardFooter a:last-child p {
+  width: 1.909375rem;
+}
+
+/* .openCardFooter a:first-child p {
+  width: 1.909375rem;
+} */
+
+.openCardFooter a:first-child p {
+  width: 3.175625rem;
+}
+
+.openCardFooter a:hover p {
+  font-weight: 700;
+  color: #29ABE2;
+}
+
+
+
+.openCardFooter a:last-child:hover img {
+  content: url(../assets/img/Desktop/contacts/edit_blue.svg);
+}
+
+.openCardFooter a:first-child:hover img {
+  content: url(../assets/img/Desktop/contacts/delete_blue.svg);
+}
+
+.openCardFooter p {
+  color: #2a3647;
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  width: unset;
+}
+
+.openCardSubtasks {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 0.375rem 1rem;
+  word-break: break-word;
+}
+
+.openCardSubtasks:hover {
+  cursor: pointer;
+}
+
+#openCardSubtasks {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.openCardSubtasks img {
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0.25rem;
+  margin-left: -0.15rem;
+}
+
+.openCardSubtasks img:not(.hoverPointer img) {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0 0.15rem 0 0;
+}
+
+.openCardSubtasks-container p:not(.openCardSubtasks p) {
+  font-size: 1.25rem;
+  color: #2a3647;
+  margin-bottom: 0.5rem;
+}
+
+.rotateCard {
+  transform: rotate(5deg);
+  transition: transform 0.3s;
+}
+
+.hoverCardContainer {
+  display: flex;
+  width: 15.625rem;
+  height: 15.25rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.625rem;
+  border-radius: 1.875rem;
+  border: 1px dashed var(--icon, #A8A8A8);
+}
+
+.AddTaskButton:hover path, .AddTaskButton:hover rect {
+  stroke: #29ABE2;
+}
+
+.AddTaskButton:active path, .AddTaskButton:active rect {
+  stroke: #091931;
+  transition: 300ms 10ms ease-out;
+}
+
+.allertNoTasksFoundContainer {
+  position: absolute;
+  inset: 6rem 0 0 14.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -15;
+  pointer-events: none;
+}
+
+.allertNoTasksFound {
+  position: absolute;
+  z-index: 10;
+}
+
+.modal {
+  display: block !important;
+  pointer-events: auto !important;
+}
+
+/* Animations */
+
+@keyframes slideInAddNew {
+  from {
+    transform: translateX(calc(calc(calc(100vw - 69.75rem) / 2) + 69.75rem));
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutAddNew {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(calc(calc(100vw - 69.75rem) / 2) + 69.75rem));
+  }
+}
+
+@keyframes slideInCard {
+  from {
+    transform: translateX(calc(calc(calc(100vw - 24.75rem) / 2) + 24.75rem));
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutCard {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(calc(calc(100vw - 24.75rem) / 2) + 24.75rem));
+  }
+}
+
+@keyframes blendIn {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  to {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+@keyframes blendOut {
+  from {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  to {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+/* Media Queries */
+
+@media (max-width: 1000px) {
+  .content {
+    padding: 0 1rem 0 1rem !important;
+  }
+
+  .content-title {
+    font-size: 3rem !important;
+    margin: 0rem 0 1rem 0;
+  }
+
+  .MobileBoardHeaderControll h2 {
+    font-size: 2.9375rem;
+  }
+
+  .hoverCardContainer {
+    width: calc(100vw - 2rem);
+    height: 3rem;
+    border-radius: 0.625rem;
+    margin: -0.875rem 0 0.875rem 0;
+  }
+
+  .addTaskButton {
+    width: 2.125rem;
+    height: 2.125rem;
+    padding: 0.1875rem;
+  }
+
+  .sortTasks {
+    width: 100%;
+  }
+
+  .MobileBoardHeader {
+    display: block;
+  }
+
+  .boardHeaderControll {
+    margin-bottom: 1.5rem;
+  }
+
+  .hoverPointer {
+    display: flex;
+  }
+
+  .toDoList {
+    gap: 0.625rem;
+  }
+
+  .toDoList p:not(.noTaskFound p, .toDoCard p) {
+    font-size: 1.6875rem;
+    font-weight: 700;
+    color: #2a3647;
+  }
+
+  .toDoListCategories {
+    margin-bottom: 0;
+  }
+
+  .toDoListCategories img {
+    width: 1.875rem;
+    height: 1.875rem;
+  }
+
+  .toDoListCategories a {
+    height: 1.875rem;
+  }
+
+  .boardHeader {
+    display: none;
+  }
+
+  .MobileBoardHeaderControll {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .toDoList {
+    flex-direction: column;
+  }
+
+  .listContainer {
+    min-width: 16rem;
+    width: 100%;
+    height: auto !important;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0.875rem;
+  }
+
+  .listContainer::-webkit-scrollbar {
+    height: 0.25rem;
+  }
+
+  .noTaskFound {
+    text-align: center;
+    width: calc(100vw - 3.75rem);
+    height: 3rem;
+  }
+
+  .toDoListCategories {
+    display: flex;
+    width: auto !important;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .boardHeaderControll {
+    width: auto;
+  }
+
+  .headerUserStoryPopUp {
+    padding: 0.25rem 1rem;
+  }
+
+  .openCard {
+    width: 21.75rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .openCard h3 {
+    font-size: 2.25rem;
+  }
+
+  .openCardAssigned p:not(.openCardIcon p) {
+    margin-bottom: 0.25rem;
+  }
+
+  .openCardContent {
+    gap: 1rem;
+  }
+
+  .openCardContent h3 {
+    font-size: 2.25rem !important;
+  }
+
+  .openCardContent h4 {
+    font-size: 1rem !important;
+  }
+
+  .openCardPriority span,
+  .openCardTable p,
+  .openCardTable span,
+  .openCardIcon p,
+  .openCardSubtasks,
+  .openCardAssignedTitle p,
+  .openCardSubtasks-container p {
+    font-size: 1rem;
+  }
+
+  .openCardAssigned p:not(.openCardIcon p) {
+    font-size: 1rem;
+  }
+
+  .openCardSubtasks-container p:not(.openCardSubtasks p) {
+    font-size: 1rem;
+  }
+
+  .toDoCard {
+    gap: 1rem;
+    max-height: 90vh;
+    overflow-y: hidden;
+  }
+
+  .toDoCard::-webkit-scrollbar {
+    display: none;
+  }
+
+  .openCardAssigned {
+    gap: 0.25rem;
+  }
+
+  .openCardAssigned::-webkit-scrollbar {
+    width: 0.4rem;
+  }
+
+  .openCardIcon {
+    padding: 0.2rem 1rem;
+}
+
+[id^="openCardSubtasks"]::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+.openCardIcon div{
+  min-height: 2.625rem;
+  min-width: 2.625rem;
+}
+
+  .add-tasks-popup {
+    width: 80vw;
+    height: 85vh;
+    padding: 2rem;
+    gap: 0rem;
+    justify-content: space-between;
+    overflow-y: hidden;
+    border-radius: 1.5rem;
+  }
+
+  .add-tasks-popup::-webkit-scrollbar {
+    display: none;
+  }
+
+  .task-forms::-webkit-scrollbar {
+    display: none;
+  }
+
+  .footer-btn-container {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+  }
+
+  .footer-container {
+    width: 100% !important;
+    margin-bottom: 0rem !important;
+  }
+
+  .forms-sides {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .createBtn {
+    padding: 1rem 0.5rem !important;
+  }
+
+  .input-div {
+    width: calc(100% - 2px) !important;
+  }
+
+  .editor-wrapper {
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .editor-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .categoryDropdown-popup {
+    position: relative;
+    top: -0.5rem;
+    width: 100%;
+    right: 0;
+  }
+
+  .assignDropdown-popup {
+    max-height: 35vh;
+    width: 100%!important;
+    height: 12.5rem!important;
+    position: relative;
+    width: 24.6rem;
+    top: -1rem;
+    left: 0rem;
+  }
+
+  .addTaskPopupDropdown {
+      display: flex;
+      box-sizing: border-box;
+      width: 100%;
+      height: 16rem;
+      border-radius: 0 0 0.625rem 0.625rem;
+      background-color: rgba(255, 255, 255, 1);
+      border: 1px solid var(--border-default);
+      border-top: none;
+      position: relative;
+      z-index: 999;
+      top: -1rem;
+      left: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 1.25rem;
+  }
+
+  .task-forms {
+    overflow-y: scroll;
+    max-height: 61vh;
+  }
+
+  .task-forms-editor {
+    overflow-y: auto;
+    max-height: 70vh !important;
+  }
+
+  .popup-wrapper {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+  }
+}
+
+
+@media (max-width: 590px) {
+  .add-tasks-popup {
+    gap: 0rem !important;
+    width: 77vw;
+  }
+
+  .content {
+    padding: 3rem 2rem 1rem 2rem !important;
+  }
+
+
+  .content-title {
+    font-size: 3rem;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .footer-btn-container {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+    margin-bottom: 0rem;
+    margin-top: 0rem;
+  }
+
+  .footer-required-field {
+    display: none !important;
+  }
+}
+
+@media (max-width: 490px) {
+  .prio-buttons span {
+    display: none;
+  }
+
+  .createBtn img,
+  .clearBtn img {
+    display: block !important;
+  }
+}

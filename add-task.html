@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Task | Join</title>
+
+  <link rel="stylesheet" href="./style/fonts.css" />
+  <link rel="stylesheet" href="./style/add-task.css" />
+
+
+  <script src="./js/login_signup/storage.js"></script>
+  <script src="./js/contacts.js"></script>
+  <script src="./js/add_task_scripts/help_functions.js"></script>
+  <script src="./js/add_task_scripts/add_task_templates.js"></script>
+  <script src="./js/add_task_scripts/priorities.js"></script>
+  <script src="./js/add_task_scripts/get_values.js"></script>
+  <script src="./js/add_task_scripts/subtask_handling.js"></script>
+  <script src="./assets/templates/header_sidebar.js"></script>
+  <script src="./js/add_task_scripts/clear_values.js"></script>
+  <script src="./js/array.js"></script>
+  <script src="./js/add_task_scripts/add_task.js"></script>
+
+  <link rel="stylesheet" href="./assets/templates/header_sidebar.css">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="./assets/favicon/site.webmanifest">
+
+</head>
+
+<body onload="init(), loadAddTaskPage(), setPrio('medium')">
+
+  <!-- Header template -->
+  <div w3-include-html="./assets/templates/header_sidebar.html"></div>
+
+  <!-- Content -->
+  <div class="content">
+    <div class="add-tasks" id="addTaskDiv">
+      <div class="add-tasks-wrapper">
+        <h1 class="content-title">Add Task</h1>
+
+        <section class="task-forms">
+          <div class="forms-sides">
+            <div class="form-div">
+              <span class="form-span required-asteriks">Title</span>
+              <div class="form-subcontainer noselect">
+                <input id="task-title-input" maxlength="48" class="task-title-input" type="text"
+                  placeholder="Enter a title" required />
+                <p class="input-required-warning invisible" id="requiredTextTitle">This field is required</p>
+              </div>
+            </div>
+
+            <div class="form-div">
+              <span class="form-span required-asteriks">Description</span>
+              <div class="form-subcontainer noselect">
+                <textarea id="task-description-textarea" class="task-description-textarea" name="inputDescription"
+                  placeholder="Enter a Description" required></textarea>
+                <p class="input-required-warning invisible" id="requiredTextDescription">This field is required</p>
+              </div>
+            </div>
+
+            <div class="form-div">
+              <span class="form-span">Assigned to</span>
+              <div class="input-div-wrapper noselect">
+                <div class="input-div">
+                  <input id="add-contact-input" class="add-contact-input" type="text" placeholder="Select contacts to assign"
+                    required
+                    onclick="toggleDropdown('assignDropdown', 'arrowAssign')" />
+                  <img class="arrow-symbol input-symbol" id="arrowAssign"
+                    src="./assets/img/Desktop/add-task/arrow_dropdown_down.svg" alt="Pfeil runter"
+                    onclick="toggleDropdown('assignDropdown', 'arrowAssign')" />
+                </div>
+                <div class="assignDropdown d-none" id="assignDropdown"></div>
+              </div>
+              <div class="assigned-contacts" id="assigned-contacts"></div>
+
+            </div>
+          </div>
+
+          <div class="seperator-vertical"></div>
+
+          <div class="forms-sides">
+            <div class="form-div">
+              <span class="form-span required-asteriks">Due date</span>
+              <div class="form-subcontainer noselect">
+
+                <div class="input-div">
+                  <input id="due-date-input" maxlength="48" class="due-date-input" type="date" placeholder="dd/mm/yyyy"
+                    required />
+                </div>
+
+                <p class="input-required-warning invisible" id="requiredTextDueDate">This field is required</p>
+
+              </div>
+            </div>
+
+            <div class="form-div">
+              <span class="form-span">Priority</span>
+              <div class="prio-buttons noselect">
+                <button type="button" class="prio-btn" id="urgentBtn" onclick="setPrio('urgent')">
+                  <span>Urgent</span>
+                  <img src="./assets/img/Desktop/add-task/priority_icons/urgent.svg" id="urgentSymbol" />
+                </button>
+                <button type="button" class="prio-btn medium" id="mediumBtn" onclick="setPrio('medium')">
+                  <span>Medium</span>
+                  <img src="./assets/img/Desktop/add-task/priority_icons/medium_white.svg" id="mediumSymbol" />
+                </button>
+                <button type="button" class="prio-btn" id="lowBtn" onclick="setPrio('low')">
+                  <span>Low</span>
+                  <img src="./assets/img/Desktop/add-task/priority_icons/low.svg" id="lowSymbol" />
+                </button>
+              </div>
+            </div>
+
+            <div class="form-div">
+              <span class="form-span required-asteriks">Category</span>
+              <div class="input-div-wrapper noselect">
+                <div class="input-div">
+                  <input onclick="switchVisibility('categoryDropdown', 'arrowCategory')" id="add-category-input"
+                    class="add-category-input" type="text" placeholder="Select task category" required readonly/>
+
+                  <img onclick="switchVisibility('categoryDropdown', 'arrowCategory')" class="arrow-symbol input-symbol"
+                    id="arrowCategory" src="./assets/img/Desktop/add-task/arrow_dropdown_down.svg" alt="Pfeil runter" />
+                </div>
+
+                <div class="categoryDropdown d-none" id="categoryDropdown"></div>
+              </div>
+              <p class="input-required-warning invisible" id="requiredTextCategory">This field is required</p>
+            </div>
+
+            <div class="form-div">
+              <span class="form-span">Subtasks</span>
+              <div class="form-subcontainer noselect">
+
+                <div class="input-div" id="subtask-input-div">
+                  <input id="subtask-input" maxlength="48" class="subtask-input" type="text"
+                    placeholder="Add new subtask" onfocus="addFocusClass()" />
+
+                  <div class="plus-symbol-div" id="plus-symbol-div">
+                    <img class="plus-symbol input-symbol" id="plus-symbol-subtask>" onclick="addFocusClass()"
+                      src="./assets/img/Desktop/add-task/subtasks_icons/add.svg" alt="plus" />
+                  </div>
+
+                  <div class="create-task-div d-none" id="create-task-div">
+                    <img class="plus-symbol input-symbol" id="close-symbol-subtask" onclick="clearSubtaskInput()"
+                      src="./assets/img/Desktop/add-task/subtasks_icons/close.svg" alt="cancel-symbol" />
+
+                    <img class="check-symbol input-symbol" id="check-symbol-subtask" onclick="setSubtask('subtask-input', 'subTasks')"
+                      src="./assets/img/Desktop/add-task/subtasks_icons/check.svg" alt="check-symbol" />
+                  </div>
+                </div>
+              </div>
+              <div id="subTasks" class="subTasks"></div>
+            </div>
+        </section>
+      </div>
+
+      <div class="footer-container spacing">
+        <span class="footer-required-field required-asteriks-before">This
+          field is required</span>
+
+        <div class="footer-btn-container noselect">
+          <button id="clearBtn" type="button" class="addTaskBtn clearBtn" onclick="clearForm('assigned-contacts', 'subTasks')">
+            <span>Clear</span>
+            <img src="./assets/img/Desktop/add-task/cancel.svg" alt="weißer Haken" class="clearBtnImage"/>
+          </button>
+
+          <button id="createTaskBtn" type="submit" class="addTaskBtn createBtn" onclick="validateAndCreateTask('assigned-contacts', 'subTasks');">
+            <span>Create Task</span>
+            <img src="./assets/img/Desktop/add-task/check.svg" alt="weißer Haken" />
+          </button>
+        </div>
+      </div>
+
+      <div class="task-added-container">
+        <span class="task-added-text">Task added to board</span>
+        <div class="task-added-icon">
+          <img src="./assets/img/Desktop/general_elements/menu_symbols/board_light.svg" alt="">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>

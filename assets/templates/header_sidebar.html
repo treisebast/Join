@@ -1,0 +1,87 @@
+<div class="headerTemplate">
+
+    <div class="sidebar">
+        <a id="joinLogo"><div>
+            <img class="sidebarImg" src="./assets/img/Desktop/general_elements/join_light.svg" alt="Join"/>
+        </div></a>
+
+        <div class="sidebarMainButtons noselect" id="sidebarMainButtons">
+            <a href="./summary.html" class="sidebarMainButton">
+                <div class="menuButtons hover-menu-btn" id="linkSummary">
+                    <img id="imageSummary" src="./assets\img\Desktop\general_elements\menu_symbols/summary_gray.svg" />
+                    <span id="textSummary">Summary</span>
+                </div>
+            </a>
+
+            <a href="./add-task.html" class="sidebarMainButton">
+                <div class="menuButtons hover-menu-btn" id="linkAdd-task">
+                    <img id="imageAdd-task"
+                        src="./assets\img\Desktop\general_elements\menu_symbols/add-task_gray.svg" />
+                    <span id="textAdd-task">Add Task</span>
+                </div>
+            </a>
+
+            <a href="./board.html" class="sidebarMainButton">
+                <div class="menuButtons hover-menu-btn" id="linkBoard">
+                    <img id="imageBoard" src="./assets\img\Desktop\general_elements\menu_symbols/board_gray.svg" />
+                    <span id="textBoard">Board</span>
+                </div>
+            </a>
+
+            <a href="./contacts.html" class="sidebarMainButton">
+                <div class="menuButtons hover-menu-btn" id="linkContacts">
+                    <img id="imageContacts"
+                        src="./assets\img\Desktop\general_elements\menu_symbols/contacts_gray.svg" />
+                    <span id="textContacts">Contacts</span>
+                </div>
+            </a>
+
+        </div>
+
+        <div class="sidebarFooterButtons noselect">
+            <a href="./privacy-policy.html" class="privacy-policy-link" id="privacy-policy">Privacy Policy</a>
+            <a href="./legal-notice.html" class="legal-notice-link" id="legal-notice">Legal Notice</a>
+        </div>
+
+    </div>
+
+
+    
+    <div class="header">
+
+        <!-- Mobile Version -->
+        <img class="mobile-logo" id = "joinLogoMobile" 
+        src="./assets/img/Mobile/general_elements_mobile/logo_dark.svg" alt="Join">
+        <!--  -->
+
+        <p>Kanban Project Managment Tool</p>
+
+        <div class="header-buttons noselect" id="headerButtons">
+
+            <a class="help" href="./help.html"><img id="helpImageDefault"
+                    src="./assets/img/Desktop/general_elements/Help/default.svg" /></a>
+
+            <a href="#">
+                <div id="headerIcon" class="header-icon" onclick="moveDropDownMenu()">
+                    <div class="header-icon-text" id="headerIconText"></div>
+                </div>
+            </a>
+
+            <div class="container-drop-down" id="containerDropDown" onclick="moveDropDownMenu()">
+                <div class="drop-down-menu" id="dropDownMenu" onclick="stopPropagation(event)">
+                    <a href="./legal-notice.html">
+                        <div class="drop-down-link">Legal Notice</div>
+                    </a>
+                    <a href="./privacy-policy.html">
+                        <div class="drop-down-link">Privacy Policy</div>
+                    </a>
+                    <a href="./index.html">
+                        <div class="drop-down-link" id="logOut" onclick="logOut()">Log out</div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
